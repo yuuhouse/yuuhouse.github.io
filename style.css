@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;600&display=swap'); /*Barlow',Light300+semiBold600*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;500&display=swap'); /*Roboto Mono,Light300+Medium500*/
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap'); /*Rajdhani,SemiBold600*/
+
+body {
+  background-color: #e0faee;
+  /*網頁底色*/
+}
+
+a:link {
+  text-decoration: none;
+  color: black; /*連結顏色控制，造訪後不要底線*/
+}
+
+a:visited {
+  text-decoration: none; /*連結顏色控制，造訪後不要底線*/
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+  color: black; /*連結顏色控制，滑鼠上去後後不要底線*/
+}
+
+a:active {
+  text-decoration: none;
+  color: black; /*連結顏色控制，滑鼠點擊後後不要底線*/
+}
+
+p {
+  margin: auto;
+}
+
+span {
+  /*sidenav text "open"*/
+  font-family: 'Barlow', sans-serif;
+  position: fixed;
+  font-weight: 600;
+  cursor: pointer;
+  left: 2%;
+  top: 2%;
+}
+
+video {
+  opacity: 90%;
+}
+
+h4 {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+}
+
+/*h5的文字控制*/
+h5 {
+  font-family: 'Rajdhani', sans-serif;
+  color: black;
+} /*h5的文字控制*/
+
+/*h6的文字控制*/
+h6 {
+  font-family: 'Roboto Mono', monospace;
+  color: black;
+} /*h6的文字控制*/
+
+/*class .h5 的文字控制 .h5作用於url*/ /*用於控制url的上下高度*/
+p.h5 {
+  text-align: center;
+  font-size: 120%;
+  font-family: 'Roboto Mono', monospace;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  color: black;
+}
+
+.h5:hover {
+  /*hover*/
+  text-align: center;
+  font-size: 150%;
+}
+/*class .h5的文字控制 .h5作用於url*/
+
+a.h6.footertitle {
+  color: black;
+}
+.center {
+  /*圖片控制*/
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.nav {
+  margin: 0;
+  padding: 0;
+  height: 60px;
+}
+
+.nav li {
+  display: inline-block;
+  height: 60px;
+  vertical-align: text-top;
+  padding: 7px;
+}
+
+.nav img {
+  transform: scale(0.9);
+  transition-duration: 0.4s;
+  padding: auto;
+}
+
+.nav img:hover {
+  transform: scale(1.1);
+}
+
+.rounded-container {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.rounded-border {
+  border-radius: 100px;
+  border: 1px solid #afafaf;
+  background-color: white;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 650px;
+  height: auto;
+  opacity: 70%;
+}
+
+.rounded-border:hover {
+  border-radius: 100px;
+  border: 1px solid #afafaf;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+  height: auto;
+}
+
+.buttonHover {
+  transition-duration: 0.4s;
+}
+
+/*sidenav*/
+/*側邊菜單本體*/
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: auto;
+  padding-top: 60px;
+  transition: 0.5s;
+  /* Disable horizontal scroll */
+}
+
+/*側邊菜單的連結的css*/
+.sidenav a {
+  padding: 60px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #adadad;
+  display: block;
+  transition: 0.3s;
+  font-family: 'Barlow', sans-serif;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/*共通的就寫一起*/
+.sidenav .closebtn {
+  position: absolute;
+  top: 0; /*從上面算起0px*/ /*從右側算起25px*/
+  right: 25px;
+  font-size: 36px;
+  /*這是用來控制sidenav打開用的文字大小*/
+}
+
+.playbgvid {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -1;
+  justify-content: space-between;
+  object-fit: cover;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  font-family: 'Barlow', sans-serif;
+  color: black;
+}
+
+.anime {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1000px;
+  width: 80%;
+}
+
+.youtube {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1000px;
+  width: 90%;
+}
+
+.patchNoteContainer {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.patchNote {
+  text-align: left;
+  background-color: #f1f1f1;
+  background-color: rgba(255, 255, 255, 0.8); /*opacity*/
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  padding: 10px;
+  max-width: 1000px;
+}
+
+.patchH6 {
+  text-align: left;
+  color: black;
+  font-family: 'Barlow', sans-serif;
+  margin: 20px;
+  line-height: 30px;
+  font-size: 20px;
+
+  font-weight: 800;
+}
+
+.patchH5 {
+  font-family: 'Roboto Mono', monospace;
+  color: black;
+  margin: 20px;
+  font-weight: 450;
+  line-height: 20px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
