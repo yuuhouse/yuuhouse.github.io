@@ -31,8 +31,7 @@
         <input type="text" placeholder="年齡" v-model="age"><span> 歲</span><br>
 
         <select v-model="gender">
-            <option v-for="list in lists" :value="list.val" selected>{{list.item}}</option>
-            
+            <option v-for="list in lists" :value="list.val" >{{list.item}}</option>
         </select>
 
 
@@ -63,7 +62,7 @@
                     return this.weight / ((this.height / 100) * (this.height / 100))//BMI計算
                 },
                 bodyfatcounting: function () {
-                    return 1.2 * this.BMIcounting + 0.23 * this.age - 5.4 - 10.8 * this.gender//體脂計算
+                    return 1.2 * this.BMIcounting + 0.23 * this.age - 5.4 - 10.8 * this.gender//體脂計算//拉上面的function下來
                 },
             },
         });
