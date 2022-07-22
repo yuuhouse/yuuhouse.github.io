@@ -56,6 +56,7 @@
 
             <h1>TODOS</h1>
             <input type="text" placeholder="請輸入代辦事項" @keyup.enter="addTodo(newTodo)" v-model="newTodo">
+            <button @click.prevent="addTodo(newTodo)" v-model="newTodo">新增</button>
             <p class="hint">Press ENTER.</p><!-- //小字提醒 -->
             <ul>
                 <li v-for="todo in todos" v-bind:class="{active:todo.completed}">
@@ -89,7 +90,7 @@
                         return;   //若內容為空白就終止 function
                     }
                     this.todos.push({ content: todo, completed: false }),//加入todo的資料到todos 並且清空文字框
-                        this.newTodo = '';
+                        this.newTodo = '';//清空文字框
                 },
                 removeTodo: function (todo) {
                     this.todos.splice(this.todos.indexOf(), 1)//找到你是第幾筆，然後刪除
