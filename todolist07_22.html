@@ -39,7 +39,6 @@
 
         a:link {
             text-decoration: none;
-
         }
 
         a:hover {
@@ -53,25 +52,38 @@
 <body>
     <div class="todoscontainer">
         <div id="app">
+            <!-- app開頭 -->
             <h2>Vue.js</h2>
             <h1>TODOS</h1>
             <input type="text" placeholder="請輸入代辦事項" @keyup.enter="addTodo(newTodo)" v-model="newTodo">
             <button v-on:click="addTodo(newTodo)">新增</button>
             <p class="hint">Press ENTER.</p><!-- //小字提醒 -->
             <ul>
-                <li v-for="todo in todos" v-bind:class="{active:todo.completed}">
+                <li v-for="todo in filteredTodos" v-bind:class="{active:todo.completed}" >
+                    <!-- 修改todo in todos為todo on filteredTodos -->
                     <input type="checkbox" v-model="todo.completed">
-                    {{todo.content}} - <a href="#" @click.prevent="removeTodo">刪除</a>
+                    {{todo.content}} - <a href="#" @click="removeTodo(todo)">刪除</a>
                 </li>
+
             </ul>
 
-            <a href="#" @click.prevent="clearAll">刪除全部</a>
+            <table>
+                <tr><a href="#" :class="{active:visibility=='all'}" @click="visibility='all'">全部</a></tr>
+                <tr>｜</tr>
+                <tr><a href="#" :class="{active:visibility=='working'}" @click="visibility='working'">進行中</a></tr>
+                <tr>｜</tr>
+                <tr><a href="#" :class="{active:visibility=='done'}" @click="visibility='done'">已完成</a></tr>
+                <tr>｜</tr>
+                <tr><a href="#" @click.prevent="clearAll">刪除全部</a></tr>
+            </table>
 
             <pre><!-- 預覽todos的陣列內容 -->
-                {{this.todos}}
+todos[]={{this.todos}}
+newTodo:{{this.newTodo}}
+visibility:{{this.visibility}}
             </pre>
 
-        </div>
+        </div><!-- app結尾 -->
     </div>
 
 
@@ -81,11 +93,12 @@
             el: '#app',
             data: {
                 todos: [],
-                newTodo: ''
+                newTodo: '',
+                visibility: 'all',
             },
             methods: {
                 addTodo: function (todo) {
-                    var value = this.newTodo.trim();
+                    var value = this.newTodo.trim();//修剪空白
                     if (!value) {
                         return;   //若內容為空白就終止 function
                     }
@@ -93,10 +106,44 @@
                         this.newTodo = '';//清空文字框
                 },
                 removeTodo: function (todo) {
-                    this.todos.splice(this.todos.indexOf(), 1)//找到你是第幾筆，然後刪除
+                    this.todos.splice(this.todos.indexOf(todo), 1);//找到你是第幾筆，然後刪除//()裡面要加todo
                 },
                 clearAll: function (todo) {
                     this.todos = [];//重製todos的內容//刪除全部
+                }
+            },
+            computed: {
+                filteredTodos: function () {
+
+                    if (this.visibility == 'all') {
+                        return this.todos;
+                    }
+                    else if (this.visibility == 'working') {
+
+                        var newTodos = [];
+
+                        this.todos.forEach(function (item) {
+
+                            if (!item.completed) {
+                                newTodos.push(item);
+                            }
+                        })
+
+                        return newTodos;
+                    }
+                    else if (this.visibility == 'done') {
+
+                        var newTodos = [];
+
+                        this.todos.forEach(function (item) {
+
+                            if (item.completed) {
+                                newTodos.push(item);
+                            }
+                        })
+
+                        return newTodos;
+                    }
                 }
             },
         })
